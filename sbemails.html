@@ -1,0 +1,77 @@
+<html><head><title>SBEMAIL PLAYER</title>
+<script type="text/javascript">
+
+var email = 0.0;
+var maxEmail = 205;
+
+function Next()
+{
+	email = 1.0 + email;
+	if(email > maxEmail) email = maxEmail;
+	document.getElementById("text_email").value = email;
+	var frame = document.getElementById("iframe");
+	
+	if(email == 100) frame.src = "http://www.homestarrunner.com/sbemailahundred.html";
+	else if(email == 151) frame.src = "http://www.homestarrunner.com/kotpoptoon.html";
+	else if(email == 200) frame.src = "http://www.homestarrunner.com/sbemailtwohundred.html";
+	else if(email == 201) frame.src = "http://www.homestarrunner.com/hremail3184.html";
+	else frame.src = "http://homestarrunner.com/sbemail" + email + ".html";
+	
+}
+
+function Previous()
+{
+	email = email - 1.0;
+	if(email < 1) email = 1;
+	document.getElementById("text_email").value = email;
+	var frame = document.getElementById("iframe");
+	
+	if(email == 100) frame.src = "http://www.homestarrunner.com/sbemailahundred.html";
+	else if(email == 151) frame.src = "http://www.homestarrunner.com/kotpoptoon.html";
+	else if(email == 200) frame.src = "http://www.homestarrunner.com/sbemailtwohundred.html";
+	else if(email == 201) frame.src = "http://www.homestarrunner.com/hremail3184.html";
+	else frame.src = "http://homestarrunner.com/sbemail" + email + ".html";
+}	
+
+function JumpToEmail()
+{
+	email = parseInt(document.getElementById("text_email").value);
+	var frame = document.getElementById("iframe");
+	
+	if(email == 100) frame.src = "http://www.homestarrunner.com/sbemailahundred.html";
+	else if(email == 151) frame.src = "http://www.homestarrunner.com/kotpoptoon.html";
+	else if(email == 200) frame.src = "http://www.homestarrunner.com/sbemailtwohundred.html";
+	else if(email == 201) frame.src = "http://www.homestarrunner.com/hremail3184.html";
+	else frame.src = "http://homestarrunner.com/sbemail" + email + ".html";
+}
+
+</script>
+</head>
+<body bgcolor="#000000" color="#000000">
+	<center>
+	<table width="100%">
+	<tr>
+		<td>
+			<center>
+			<input type="button" id="previous" value="Previous" onClick="Previous();"></input>
+			<font color="white"> Current Email: </font>
+			<input type="text" id="text_email" value="" width="2">
+			<input type="button" id="jump" value="Jump to Email" onClick="JumpToEmail();"></input>
+			<input type="button" id="next" value="Next" onClick="Next();"></input>
+			</center>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br>
+			<center>
+			<div id="player">
+			<iframe id="iframe" height="425" width="950" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes" src=""></iframe>
+			</div>
+			</center>
+		</td>
+	</tr>
+	</table>
+	</center>
+</body>
+</html>
